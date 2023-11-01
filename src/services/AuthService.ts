@@ -1,39 +1,39 @@
-import axios, {AxiosInstance} from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
-export class AuthService{
+export class AuthService {
     protected readonly instance: AxiosInstance
-    public constructor (url:string){
+    public constructor(url: string) {
         this.instance = axios.create({
             baseURL: url,
-            timeout:3000,
-            timeoutErrorMessage: 'Time out'
+            timeout: 3000,
+            timeoutErrorMessage: 'Time out',
         })
     }
 
-    login = (username:string, password:string) => {
+    login = (username: string, password: string) => {
         return this.instance
-        .post('/sign-in', {
-            username,
-            password
-        })
-        .then((res) => {
-            return {
-                accessToken:res.data.access_token
-            }
-        })
+            .post('/sign-in', {
+                username,
+                password,
+            })
+            .then((res) => {
+                return {
+                    accessToken: res.data.access_token,
+                }
+            })
     }
 
-    signup = (username:string, email:string, password:string) => {
+    signup = (username: string, email: string, password: string) => {
         return this.instance
-        .post('/sign-up', {
-            username,
-            email,
-            password
-        })
-        .then((res) => {
-            return {
-                accessToken:res.data.access_token
-            }
-        })
+            .post('/sign-up', {
+                username,
+                email,
+                password,
+            })
+            .then((res) => {
+                return {
+                    accessToken: res.data.access_token,
+                }
+            })
     }
 }

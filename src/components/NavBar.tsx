@@ -7,29 +7,22 @@ import {
     NavbarBrand,
     NavbarContent,
     NavbarItem,
-    NavbarMenuToggle,
-    NavbarMenu,
-    NavbarMenuItem,
 } from '@nextui-org/navbar'
-import { Link } from '@nextui-org/link'
 import { Button } from '@nextui-org/button'
 import { Avatar } from '@nextui-org/avatar'
 import {
     Dropdown,
     DropdownTrigger,
     DropdownMenu,
-    DropdownSection,
     DropdownItem,
 } from '@nextui-org/dropdown'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
-import {useLogout} from '@/hooks/useLogout'
-import { usePathname } from 'next/navigation'
+import { useLogout } from '@/hooks/useLogout'
 
 function NavBar() {
-     const pathname = usePathname()
     const user = useCurrentUser()
     const router = useRouter()
-    const {logout} = useLogout()
+    const { logout } = useLogout()
     return (
         <Navbar className='mb-5'>
             <NavbarContent justify='start' className='pr-32'>
@@ -61,6 +54,7 @@ function NavBar() {
 
             <NavbarContent justify='end'>
                 <NavbarItem>
+                    {/* This button logout user for now */}
                     <Button
                         onPress={() => {
                             logout()
@@ -85,17 +79,13 @@ function NavBar() {
                     </Button>
                 </NavbarItem>
                 <NavbarItem>
-                    {user ? (
-                        <p>ABOBA</p>
-                    ) : (
-                        <Button
-                            onPress={() => router.push('/auth/signup')}
-                            color='primary'
-                            variant='solid'
-                        >
-                            Sign Up
-                        </Button>
-                    )}
+                    <Button
+                        onPress={() => router.push('/auth/signup')}
+                        color='primary'
+                        variant='solid'
+                    >
+                        Sign Up
+                    </Button>
                 </NavbarItem>
             </NavbarContent>
         </Navbar>

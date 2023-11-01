@@ -7,8 +7,10 @@ import { Button } from '@nextui-org/button'
 import { Card } from '@nextui-org/card'
 import { useRouter } from 'next/navigation'
 const LogInn = (): JSX.Element => {
+    //input controls
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    //log in function
     const { login } = useLogin()
     const router = useRouter()
     const handleSubmit = () => {

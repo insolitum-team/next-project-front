@@ -7,10 +7,13 @@ import { Button } from '@nextui-org/button'
 import { Card } from '@nextui-org/card'
 import { useRouter } from 'next/navigation'
 const SignUpp = (): JSX.Element => {
+    //control inputs
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
+    //sign up function
     const { signup } = useSignup()
+
     const router = useRouter()
     const handleSubmit = () => {
         if (!username || !email || !password) {

@@ -1,16 +1,15 @@
 'use client'
 import { Button } from '@nextui-org/button'
 import Image from 'next/image'
-import React, { FC} from 'react'
+import React, { FC } from 'react'
 import Categories from './Categories'
 import Message from './Message'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const HomePage: FC = () => {
-    const user = useCurrentUser()
     return (
         <div className='flex justify-center items-center flex-col space-y-9'>
-           {user ? <p className='text-4xl'>👨🏻‍💻{user.accessToken}</p> : <p className='text-4xl'>👨🏻‍💻DEVELOPER</p>}
+            <p className='text-4xl'>👨🏻‍💻DEVELOPER</p>
             <div className='bg-[#19191C] rounded-[36px] p-5'>
                 <p className='text-[#D28852] text-xl'>
                     From <span className='text-[#D3D3D3]'>Scratch</span>

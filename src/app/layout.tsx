@@ -20,8 +20,9 @@ export default function RootLayout({
         <html lang='en' className='light'>
             <body className={jetbrains.className}>
                 <Providers>
-                  <NavBar/>
-                  {children}</Providers>
+                    <NavBar />
+                    {children}
+                </Providers>
             </body>
         </html>
     )
