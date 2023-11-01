@@ -22,4 +22,18 @@ export class AuthService{
             }
         })
     }
+
+    signup = (username:string, email:string, password:string) => {
+        return this.instance
+        .post('/sign-up', {
+            username,
+            email,
+            password
+        })
+        .then((res) => {
+            return {
+                accessToken:res.data.access_token
+            }
+        })
+    }
 }

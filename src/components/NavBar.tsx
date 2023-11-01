@@ -23,13 +23,15 @@ import {
 } from '@nextui-org/dropdown'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 import {useLogout} from '@/hooks/useLogout'
+import { usePathname } from 'next/navigation'
 
 function NavBar() {
+     const pathname = usePathname()
     const user = useCurrentUser()
     const router = useRouter()
     const {logout} = useLogout()
     return (
-        <Navbar className='mb-5' >
+        <Navbar className='mb-5'>
             <NavbarContent justify='start' className='pr-32'>
                 <NavbarItem>
                     <NavbarBrand>
@@ -59,23 +61,41 @@ function NavBar() {
 
             <NavbarContent justify='end'>
                 <NavbarItem>
-                    <Button onPress={() => {
-                        logout()
-                        router.push('/')
-                    } } variant='light'>Make a donation</Button>
+                    <Button
+                        onPress={() => {
+                            logout()
+                            router.push(window.location.href)
+                            router.refresh()
+                        }}
+                        variant='light'
+                    >
+                        Make a donation
+                    </Button>
                 </NavbarItem>
                 <NavbarItem>
                     <Button variant='light'>Join us</Button>
                 </NavbarItem>
                 <Divider orientation='vertical' className='h-8' />
                 <NavbarItem>
-                    <Button variant='light' onPress={() => router.push('/auth/login')} >Log in</Button>
+                    <Button
+                        variant='light'
+                        onPress={() => router.push('/auth/login')}
+                    >
+                        Log in
+                    </Button>
                 </NavbarItem>
                 <NavbarItem>
-                   { user ? (<p>ABOBA</p>)
-                   : (<Button color='primary' variant='solid'>
-                        Sign Up
-                    </Button>)  }
+                    {user ? (
+                        <p>ABOBA</p>
+                    ) : (
+                        <Button
+                            onPress={() => router.push('/auth/signup')}
+                            color='primary'
+                            variant='solid'
+                        >
+                            Sign Up
+                        </Button>
+                    )}
                 </NavbarItem>
             </NavbarContent>
         </Navbar>
