@@ -15,6 +15,7 @@ import {
     DropdownTrigger,
     DropdownMenu,
     DropdownItem,
+    DropdownSection,
 } from '@nextui-org/dropdown'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { useLogout } from '@/hooks/useLogout'
@@ -23,6 +24,7 @@ function NavBar() {
     const user = useCurrentUser()
     const router = useRouter()
     const { logout } = useLogout()
+
     return (
         <Navbar className='mb-5'>
             <NavbarContent justify='start' className='pr-32'>
@@ -43,10 +45,14 @@ function NavBar() {
                             variant='faded'
                             aria-label='Static Actions'
                         >
+                             <DropdownSection title="Backend development" showDivider>
                             <DropdownItem key='new'>Python</DropdownItem>
                             <DropdownItem key='copy'>Java</DropdownItem>
+                             </DropdownSection>
+                              <DropdownSection title="Frontend development">
                             <DropdownItem key='edit'>JavaScript</DropdownItem>
                             <DropdownItem key='delete'>React</DropdownItem>
+                              </DropdownSection>
                         </DropdownMenu>
                     </Dropdown>
                 </NavbarItem>
@@ -58,6 +64,7 @@ function NavBar() {
                     <Button
                         onPress={() => {
                             logout()
+
                             router.push(window.location.href)
                             router.refresh()
                         }}
