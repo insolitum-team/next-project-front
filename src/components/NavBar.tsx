@@ -19,11 +19,18 @@ import {
 } from '@nextui-org/dropdown'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { useLogout } from '@/hooks/useLogout'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
 function NavBar() {
     const user = useCurrentUser()
     const router = useRouter()
     const { logout } = useLogout()
+    const { scrollYProgress } = useScroll()
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    })
 
     return (
         <Navbar className='mb-5'>
@@ -45,14 +52,19 @@ function NavBar() {
                             variant='faded'
                             aria-label='Static Actions'
                         >
-                             <DropdownSection title="Backend development" showDivider>
-                            <DropdownItem key='new'>Python</DropdownItem>
-                            <DropdownItem key='copy'>Java</DropdownItem>
-                             </DropdownSection>
-                              <DropdownSection title="Frontend development">
-                            <DropdownItem key='edit'>JavaScript</DropdownItem>
-                            <DropdownItem key='delete'>React</DropdownItem>
-                              </DropdownSection>
+                            <DropdownSection
+                                title='Backend development'
+                                showDivider
+                            >
+                                <DropdownItem key='new'>Python</DropdownItem>
+                                <DropdownItem key='copy'>Java</DropdownItem>
+                            </DropdownSection>
+                            <DropdownSection title='Frontend development'>
+                                <DropdownItem key='edit'>
+                                    JavaScript
+                                </DropdownItem>
+                                <DropdownItem key='delete'>React</DropdownItem>
+                            </DropdownSection>
                         </DropdownMenu>
                     </Dropdown>
                 </NavbarItem>
@@ -95,6 +107,7 @@ function NavBar() {
                     </Button>
                 </NavbarItem>
             </NavbarContent>
+            <motion.div className='progress-bar' style={{ scaleX }} />
         </Navbar>
     )
 }

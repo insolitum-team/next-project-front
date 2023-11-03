@@ -4,7 +4,6 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import Categories from './Categories'
 import Message from './Message'
-import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const HomePage: FC = () => {
     return (
