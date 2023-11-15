@@ -4,8 +4,11 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import Categories from './Categories'
 import Message from './Message'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const HomePage: FC = () => {
+    const user = useCurrentUser()
+    console.log('my user', user)
     return (
         <div className='flex justify-center items-center flex-col space-y-9'>
             <p className='text-4xl'>👨🏻‍💻DEVELOPER</p>

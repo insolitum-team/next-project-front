@@ -20,6 +20,8 @@ import {
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { useLogout } from '@/hooks/useLogout'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { UserInfo } from '../types/userinfo';
+
 
 function NavBar() {
     const user = useCurrentUser()
@@ -45,7 +47,6 @@ function NavBar() {
                 </NavbarItem>
                 <NavbarItem>
                     <Dropdown
-                        
                         classNames={{
                             base: 'before:bg-default-200', // change arrow background
                             content:
@@ -104,6 +105,27 @@ function NavBar() {
                         Log in
                     </Button>
                 </NavbarItem>
+                {user ? (
+                    <NavbarItem>
+                        <Button
+                            onPress={() => router.push('/auth/signup')}
+                            color='primary'
+                            variant='solid'
+                        >
+                            {user.userInfo.username}
+                        </Button>
+                    </NavbarItem>
+                ) : (
+                    <NavbarItem>
+                        <Button
+                            onPress={() => router.push('/auth/signup')}
+                            color='primary'
+                            variant='solid'
+                        >
+                            You need to sign up
+                        </Button>
+                    </NavbarItem>
+                )}
                 <NavbarItem>
                     <Button
                         onPress={() => router.push('/auth/signup')}

@@ -22,7 +22,10 @@ const LogInn = (): JSX.Element => {
             alert('Please enter information')
         } else {
             login(email, password)
-                .then((res) => router.push('/'))
+                .then((res) => {
+                    router.push('/')
+                    router.refresh()
+                })
                 .catch((e) => alert(e))
         }
     }
