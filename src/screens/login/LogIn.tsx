@@ -24,7 +24,6 @@ const LogInn = (): JSX.Element => {
             login(email, password)
                 .then((res) => {
                     router.push('/')
-                    router.refresh()
                 })
                 .catch((e) => alert(e))
         }

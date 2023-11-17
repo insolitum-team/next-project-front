@@ -50,8 +50,15 @@ export class AuthService {
                     // email: res.data.email,
                     username: res.data.data.username,
                     id: res.data.data.id,
-                    email: res.data.data.email
+                    email: res.data.data.email,
                 }
             })
+    }
+    deleteUser = (accessToken: any, id: any) => {
+        return this.instance.delete(`/users/user/${id}`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        })
     }
 }

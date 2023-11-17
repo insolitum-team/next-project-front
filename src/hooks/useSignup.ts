@@ -9,8 +9,9 @@ export const useSignup = () => {
         password: string
     ) => {
         const user = await authService.signup(username, email, password)
+        const userInfo = await authService.getUserInfo(user.accessToken)
         if (user) {
-            Cookies.set('currentUser', JSON.stringify(user))
+            Cookies.set('currentUser', JSON.stringify({ user, userInfo }))
         }
         return user as User
     }

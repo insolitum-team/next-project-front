@@ -3,7 +3,6 @@ import React from 'react'
 import { useSignup } from '@/hooks/useSignup'
 import { useState } from 'react'
 import { Input } from '@nextui-org/input'
-
 import { Button } from '@nextui-org/button'
 import { Card, CardHeader, CardBody } from '@nextui-org/card'
 import { useRouter } from 'next/navigation'
