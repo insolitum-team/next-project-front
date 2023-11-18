@@ -52,7 +52,7 @@ function NavBar() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
     return (
-        <Navbar className='mb-5'>
+        <Navbar className='mb-5 w-[100%]'>
             <NavbarContent justify='start' className='pr-32'>
                 <NavbarItem>
                     <NavbarBrand>

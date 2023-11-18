@@ -36,7 +36,7 @@ export class AuthService {
                 }
             })
     }
-    getUserInfo = (accessToken: any) => {
+    getUserInfo = (accessToken: string) => {
         return this.instance
             .get('/users/current', {
                 headers: {
@@ -54,7 +54,7 @@ export class AuthService {
                 }
             })
     }
-    deleteUser = (accessToken: any, id: any) => {
+    deleteUser = (accessToken: string, id: string) => {
         return this.instance.delete(`/users/user/${id}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,

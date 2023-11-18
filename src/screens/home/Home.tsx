@@ -1,13 +1,11 @@
-'use client'
 import { Button } from '@nextui-org/button'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import Categories from './Categories'
 import Message from './Message'
-import { useCurrentUser } from '@/hooks/useCurrentUser'
+import CodeEditor from '@/components/codeEditor/CodeEditor'
 
 const HomePage: FC = () => {
-    const user = useCurrentUser()
     return (
         <div className='flex justify-center items-center flex-col space-y-9'>
             <p className='text-4xl'>👨🏻‍💻DEVELOPER</p>
@@ -34,14 +32,8 @@ const HomePage: FC = () => {
                         Completely.
                     </span>
                 </p>
-                <Button
-                    color='primary'
-                    variant='solid'
-                    className='w-1/4 h-1/4 p-5'
-                >
-                    Let’s start
-                </Button>
             </div>
+            <CodeEditor />
             <div className='space-y-0 -mb-10 z-0'>
                 <Image
                     src='/webFrame.svg'
