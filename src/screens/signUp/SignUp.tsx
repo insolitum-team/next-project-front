@@ -43,6 +43,7 @@ const SignUpp = (): JSX.Element => {
 
     return (
         <div className='flex justify-center mt-[15%] h-[50%] p-8 '>
+            <div className='jumbo absolute -inset-[10px] opacity-50'></div>
             <Card className='w-[50%] h-[50%] bg-gradient-to-br from-white to-default-200 '>
                 <CardHeader className='flex flex-col pb-0 pt-8'>
                     <p className='font-extrabold  text-4xl'>

@@ -11,5 +11,5 @@ export const useCurrentUser = () => {
             setUser(JSON.parse(currentUser))
         }
     }, [])
-    return {user}
+    return { user }
 }
